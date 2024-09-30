@@ -17,6 +17,7 @@ def get_tasks():
 # get data for each tech
 @app.route('/techs/<int:tech_id>', methods=['GET'])
 def get_tech(tech_id):
+    #change this to make more readable
     tech = next((tech for tech in techs if tech["id"] == tech_id), None)
     return jsonify(tech) if tech else ('', 404)
 
