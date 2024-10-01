@@ -38,7 +38,7 @@ def get_tasks():
 
 
 #create a tech
-@app.route('/techs', methods=['POST'])
+@app.route('/create', methods=['POST'])
 def create_tech():
     new_tech = request.get_json()
     tech = Tech(name=new_tech['name'])
