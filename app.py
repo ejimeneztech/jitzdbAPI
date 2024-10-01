@@ -18,8 +18,8 @@ db = SQLAlchemy(app)
 class Tech(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
-    title = db.Column(db.String(255))
-    steps = db.Column(db.JSON)
+    title = db.Column(db.String(255), nullable=False)
+    steps = db.Column(db.JSON, nullable=False)
 
     def to_dict(self):
         return {"id": self.id, "name": self.name,"title": self.title, "steps": self.steps }
