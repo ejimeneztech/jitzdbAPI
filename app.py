@@ -1,16 +1,20 @@
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
+import pymysql
+
+pymysql.install_as_MySQLdb()
 
 app = Flask(__name__)
 
 
+
 # Database configuration for MySQL
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://ejimenez90:Skynet9000!@ejimenez90.mysql.pythonanywhere-services.com/ejimenez90$jitzdbAPI'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://ejimenez90:Skynet9000%21@localhost/ejimenez90$jitzdbAPI'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-#create data model
+#create data model0.
 class Tech(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
