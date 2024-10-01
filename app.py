@@ -43,7 +43,10 @@ def get_tasks():
 @app.route('/create', methods=['POST'])
 def create_tech():
     new_tech = request.get_json()
-    tech = Tech(name=new_tech['name'])
+    # Ensure all required fields are present
+    if 'name' not in new_tech or 'title' not in new_tech:
+        return jsonify({"error": "Name and title are required"}), 400
+    tech = Tech(name=new_tech['name'], title=new_tech['title'], steps=new_tech['steps'])
     db.session.add(tech)
     db.session.commit()
     return jsonify(tech.to_dict()), 201
