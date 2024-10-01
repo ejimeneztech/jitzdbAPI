@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 
 # Database configuration for MySQL
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://ejimenez90:Skynet9000%21@localhost/ejimenez90$jitzdbAPI'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://ejimenez90:Skynet9000%21@ejimenez90.mysql.pythonanywhere-services.com/ejimenez90$jitzdbAPI'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
