@@ -1,11 +1,12 @@
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
+from flask_cors import CORS
 
 pymysql.install_as_MySQLdb()
 
 app = Flask(__name__)
-
+CORS(app)
 
 
 # Database configuration for MySQL
@@ -31,7 +32,7 @@ with app.app_context():
 
 #list of techs
 @app.route('/techs', methods=['GET'])
-def get_tasks():
+def get_techs():
     techs = Tech.query.all()
     return jsonify([tech.to_dict() for tech in techs])
 
