@@ -38,7 +38,7 @@ def get_techs():
 
 
 # get data for each tech
-@app.route('techs/<int:id>', methods=['GET'])
+@app.route('/techs/<int:id>', methods=['GET'])
 def get_tech_id(id):
     tech = Tech.query.get(id)
     if tech:
