@@ -38,6 +38,14 @@ def get_techs():
 
 
 # get data for each tech
+@app.route('techs/<int:id>', methods=['GET'])
+def get_tech_id(id):
+    tech = Tech.query.get(id)
+    if tech:
+        return jsonify(tech.to_dict())
+    else:
+        return jsonify({"error": "Technique not found"}), 404
+
 
 
 #create a tech
